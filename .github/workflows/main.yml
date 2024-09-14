@@ -25,6 +25,7 @@ jobs:
 
         - name: Run python program
           run: |
+            pip install requests
             python ./adsbgetphotosdb.py
           
         - name: File Listing
