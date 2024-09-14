@@ -71,7 +71,7 @@ def main():
     conn = create_database()
     hex_values = get_hex_values()
     start_time = time.time()
-    time_limit = 200
+    time_limit = 2000
     for hex_value in hex_values:
 
         if time.time() - start_time > time_limit:
