@@ -34,8 +34,11 @@ jobs:
             python -m pip install --upgrade pip
             pip install requests
     
-        - name: Run weather logging script
-          run: python adsbgetphotosdb.py
+        - name: Run  script
+          run: |
+            output=$(adsbgetphotosdb.py)
+            echo "$output"
+          continue-on-error: false
 
         - name: Commit and push if changed
           run: |
