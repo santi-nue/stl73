@@ -13,6 +13,11 @@ jobs:
         - name: Check out repository code
           uses: actions/checkout@v3
 
+        - name: Set up Python
+          uses: actions/setup-python@v4
+          with:
+            python-version: '3.x'
+
         - name: Set git identity
           run: |
             git config user.name 'github-actions[bot]'
