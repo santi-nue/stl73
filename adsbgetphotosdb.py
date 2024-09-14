@@ -70,8 +70,13 @@ def image_exists_in_db(conn, hex_value):
 def main():
     conn = create_database()
     hex_values = get_hex_values()
-    
+    start_time = time.time()
+    time_limit = 200
     for hex_value in hex_values:
+	if time.time() - start_time > time_limit:
+            print("Loop time limit. Exiting loop.")
+        break
+	    
         if image_exists_in_db(conn, hex_value):
             print(f"Image for hex {hex_value} already exists in database. Skipping.")
             continue
