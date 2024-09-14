@@ -30,9 +30,9 @@ jobs:
           run: |
             git status
             
-        - name: Add data to git
+        - name: Add to git
           run: |
-            git add data
+            git add .
             
         - name: Commit to git
           run: |
