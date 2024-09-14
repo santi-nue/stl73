@@ -30,7 +30,7 @@ jobs:
         - name: Run python program
           shell: bash
           run: |
-            python adsbgetphotosdb.py
+            getfiles.sh
           
         - name: File Listing
           run: |
