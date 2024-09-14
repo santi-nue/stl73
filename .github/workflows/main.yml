@@ -12,6 +12,9 @@ jobs:
    run-script:
      name: Fetch data
      runs-on: ubuntu-latest
+     strategy:
+       fail-fast: false
+     
      steps:
         - name: Check out repository code
           uses: actions/checkout@v3
