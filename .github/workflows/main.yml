@@ -36,7 +36,7 @@ jobs:
     
         - name: Run  script
           run: |
-            output=$(adsbgetphotosdb.py)
+            output=$(python adsbgetphotosdb.py)
             echo "$output"
           continue-on-error: false
 
@@ -46,7 +46,6 @@ jobs:
             git status
             git add .
             git commit -m "Update data" || echo "No changes to commit"
-            git status
             git status
             git push
             git status
