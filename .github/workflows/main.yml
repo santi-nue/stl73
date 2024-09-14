@@ -1,0 +1,52 @@
+on:
+  push:
+
+
+permissions: 
+  contents: write
+
+jobs:
+   run-script:
+     name: Fetch data
+     runs-on: ubuntu-latest
+     steps:
+        - name: Check out repository code
+          uses: actions/checkout@v3
+
+        - name: Set git identity
+          run: |
+            git config user.name 'github-actions[bot]'
+            git config user.email 'github-actions[bot]@users.noreply.github.com'
+
+        - name: Run python program
+          run: |
+            python ./adsbgetphotosdb.py
+          
+        - name: File Listing
+          run: |
+            ls -R
+
+        - name: Git Status
+          run: |
+            git status
+            
+        - name: Add data to git
+          run: |
+            git add data
+            
+        - name: Commit to git
+          run: |
+            git commit -m "Update data" || echo "No changes to commit"
+            
+        - name: Git Status
+          run: |
+            git status
+            
+        - name: Git Push
+          run: |
+            git status
+            git push
+            
+        - name: Git Status
+          run: |
+            git status
