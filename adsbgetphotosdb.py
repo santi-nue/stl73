@@ -73,7 +73,8 @@ def main():
     start_time = time.time()
     time_limit = 200
     for hex_value in hex_values:
-	if time.time() - start_time > time_limit:
+
+        if time.time() - start_time > time_limit:
             print("Loop time limit. Exiting loop.")
         break
 	    
