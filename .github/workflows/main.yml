@@ -28,6 +28,7 @@ jobs:
             pip install requests
 
         - name: Run python program
+          shell: bash
           run: |
             python adsbgetphotosdb.py
           
