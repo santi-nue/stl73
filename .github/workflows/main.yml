@@ -28,11 +28,12 @@ jobs:
             pip install requests
 
         - name: Run python program
+          timeout-minutes: 60
           shell: bash
           run: |
             chmod +x getfiles.sh
             ./getfiles.sh
-            timeout-minutes: 60
+
           
         - name: File Listing
           run: |
