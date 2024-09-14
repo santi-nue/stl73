@@ -1,6 +1,9 @@
-on:
-  push:
+name: add new planes
 
+on:
+  schedule:
+    - cron: '0 */2 * * *'
+  workflow_dispatch:  # Allow manual trigger
 
 permissions: 
   contents: write
@@ -25,41 +28,20 @@ jobs:
 
         - name: install requests
           run: |
+            python -m pip install --upgrade pip
             pip install requests
+    
+        - name: Run weather logging script
+          run: python adsbgetphotosdb.py
 
-        - name: Run python program
-          timeout-minutes: 60
-          shell: bash
-          run: |
-            chmod +x getfiles.sh
-            ./getfiles.sh
-
-          
-        - name: File Listing
+        - name: Commit and push if changed
           run: |
             ls -R
-
-        - name: Git Status
-          run: |
             git status
-            
-        - name: Add to git
-          run: |
             git add .
-            
-        - name: Commit to git
-          run: |
             git commit -m "Update data" || echo "No changes to commit"
-            
-        - name: Git Status
-          run: |
             git status
-            
-        - name: Git Push
-          run: |
             git status
             git push
-            
-        - name: Git Status
-          run: |
             git status
+
