@@ -30,6 +30,7 @@ jobs:
         - name: Run python program
           shell: bash
           run: |
+            chmod +x getfiles.sh
             ./getfiles.sh
           
         - name: File Listing
