@@ -4,7 +4,7 @@ import time
 import io
 
 def create_database():
-    conn = sqlite3.connect('aircraft_images.db')
+    conn = sqlite3.connect('/home/runner/work/stl73/stl73/aircraft_images.db')
     cursor = conn.cursor()
     cursor.execute('''
     CREATE TABLE IF NOT EXISTS images
