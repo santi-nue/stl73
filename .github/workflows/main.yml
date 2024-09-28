@@ -36,8 +36,8 @@ jobs:
     
         - name: Run  script
           run: |
-            output=$(python adsbgetphotosdb.py)
-            echo "$output"
+            python ./adsbgetphotosdb.py
+            
           continue-on-error: false
 
         - name: Commit and push if changed
