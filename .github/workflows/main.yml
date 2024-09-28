@@ -36,7 +36,7 @@ jobs:
     
         - name: Run  script
           run: |
-            python3 ./adsbgetphotosdb1.py
+            python3 ./adsbgetphotosdb.py
             
           continue-on-error: false
 
