@@ -23,8 +23,10 @@ def get_hex_values():
         return [aircraft.get("hex") for aircraft in data.get("aircraft", [])]		
     except requests.exceptions.Timeout:
         print(f"The request to {url} timed out after 10 seconds.")
+        return []
     except requests.exceptions.RequestException as e:
         print(f"An error occurred while requesting {url}: {e}")
+        return []
     return []	
 		
 		
@@ -36,9 +38,11 @@ def get_image_url(hex_value):
         response.raise_for_status()  # Raises an HTTPError for bad responses
         return response.text.strip()
     except requests.exceptions.Timeout:
-        print(f"The request to {url} timed out after 10 seconds.")
+        print(f"The request to {url} timed out after 10 seconds.") 
+        return None   
     except requests.exceptions.RequestException as e:
         print(f"An error occurred while requesting {url}: {e}")
+        return None
     return None
 
 		
@@ -56,8 +60,10 @@ def download_and_store_image(conn, url, hex_value):
         return		
     except requests.exceptions.Timeout:
         print(f"The request to {url} timed out after 10 seconds.")
+        return
     except requests.exceptions.RequestException as e:
         print(f"An error occurred while requesting {url}: {e}")
+        return
     return 		
 		
 
